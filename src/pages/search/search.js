@@ -6,15 +6,22 @@ import axios from 'axios'
 import url from 'js/api.js'
 import qs from 'qs'
 
-new Vue ({
+let { keyword, id } = qs.parse(location.search.substr(1))
+
+new Vue({
     el: '.container',
-    data:{
-
+    data: {
+        searchList: null,
+        keyword
     },
-    created(){
-
+    created() {
+        this.getSearchList()
     },
-    methods:{
-
+    methods: {
+        getSearchList() {
+            axios.get(url.searchList, { keyword, id }).then(res => {
+                this.searchList = res.data.lists
+            })
+        }
     },
 })
