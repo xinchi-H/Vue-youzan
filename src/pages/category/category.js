@@ -5,7 +5,8 @@ import Vue from 'vue'
 import axios from 'axios'
 import url from 'js/api.js'
 
-import Foot from 'components/Foot.vue'
+// import Foot from 'components/Foot.vue'
+import mixin from 'js/mixin'
 
 new Vue({
     el: '#app',
@@ -46,19 +47,20 @@ new Vue({
             location.href = `search.html?keyword=${list.name}&id=${list.id}`
         }
     },
-    components: {
-        Foot
-    },
-    // 过滤器
-    filters: {
-        number(price) {
-            let priceStr = '' + price //把数字转化为字符串
-            if (priceStr.indexOf('.') > -1) {
-                let arr = priceStr.split('.')
-                return arr[0] + '.' + (arr[1] + '0').substr(0, 2)
-            } else {
-                return priceStr + '.00'
-            }
-        }
-    }
+    // components: {
+    //     Foot
+    // },
+    // // 过滤器
+    // filters: {
+    //     number(price) {
+    //         let priceStr = '' + price //把数字转化为字符串
+    //         if (priceStr.indexOf('.') > -1) {
+    //             let arr = priceStr.split('.')
+    //             return arr[0] + '.' + (arr[1] + '0').substr(0, 2)
+    //         } else {
+    //             return priceStr + '.00'
+    //         }
+    //     }
+    // }
+    mixins: [mixin]
 })

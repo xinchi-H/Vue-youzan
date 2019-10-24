@@ -6,6 +6,8 @@ import axios from 'axios'
 import url from 'js/api.js'
 import qs from 'qs'
 
+import mixin from 'js/mixin'
+
 let { keyword, id } = qs.parse(location.search.substr(1))
 
 new Vue({
@@ -24,4 +26,5 @@ new Vue({
             })
         }
     },
+    mixins: [mixin]
 })
