@@ -20,6 +20,7 @@ new Vue({
         details: null,
         detailTab,
         tabIndex: 0,
+        dealLists: null,
     },
     created() {
         this.getDetails()
@@ -33,6 +34,15 @@ new Vue({
         },
         changeTab(index) {
             this.tabIndex = index
+            if (index) {
+                //在这里index值只有0/1，等于1时调用getDeal()
+                this.getDeal()
+            }
+        },
+        getDeal() {
+            axios.get(url.deal, { id }).then(res => {
+                this.dealLists = res.data.data.lists
+            })
         }
     },
     mixins: [mixin]
