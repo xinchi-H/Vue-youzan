@@ -31,13 +31,13 @@ new Vue({
     },
     methods: {
         getDetails() {
-            axios.get(url.details, {id}).then(res => {
+            axios.get(url.details, { id }).then(res => {
                 this.details = res.data.data
                 this.bannerLists = []
                 this.details.imgs.forEach(item => {
                     this.bannerLists.push({
                         clickUrl: '',
-                        image: item,
+                        img: item,
                     })
                 });
             })
