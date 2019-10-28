@@ -456,10 +456,8 @@
       </div>
       <!-- 规范确认弹窗 Popout -->
       <transition name="fade">
-        <div id="QfEqtDbeK9" class="sku-layout sku-box-shadow popup"
-          style="overflow: hidden; position: fixed; z-index: 1000; background: white; 
-          bottom: 0px; left: 0px; right: 0px; visibility: visible;"
-          v-show="showSku">
+        <div id="QfEqtDbeK9" class="sku-layout sku-box-shadow popup" style="overflow: hidden; position: fixed; z-index: 1000; background: white; 
+          bottom: 0px; left: 0px; right: 0px; visibility: visible;" v-show="showSku">
           <div class="sku-layout-title name-card sku-name-card">
             <div class="thumb"><img class="js-goods-thumb goods-thumb"
                 src="https://img.yzcdn.cn/upload_files/2017/07/12/FkSvYz8FLLD9-t0smXO43hF6ov7S.jpg?imageView2/2/w/100/h/100/q/75/format/webp?imageView2/2/w/100/h/100/q/75/format/webp"
@@ -505,11 +503,11 @@
                 <dd class="sku-quantity-contaienr">
                   <dl class="clearfix">
                     <div class="quantity">
-                      <button class="minus disabled" type="button" disabled="true"></button>
-                      <input type="text" class="txt" pattern="[0-9]*" value="1">
+                      <button class="minus" type="button" disabled="true" :class="{disabled:skuNum===1}"></button>
+                      <input type="text" class="txt" pattern="[0-9]*" :value="skuNum">
                       <button class="plus" type="button"></button>
-                      <div class="response-area response-area-minus"></div>
-                      <div class="response-area response-area-plus"></div>
+                      <div class="response-area response-area-minus" @click="changeSkuNum(-1)"></div>
+                      <div class="response-area response-area-plus" @click="changeSkuNum(1)"></div>
                     </div>
                   </dl>
                 </dd>

@@ -26,6 +26,7 @@ new Vue({
         bannerLists: null,
         skuType: 1,
         showSku: false,
+        skuNum: 1,
     },
     created() {
         this.getDetails()
@@ -60,7 +61,10 @@ new Vue({
             this.skuType = type
             this.showSku = true
         },
-
+        changeSkuNum(num) {
+            if (num < 0 && this.skuNum === 1) return
+            this.skuNum += num
+        }
     },
     components: {
         Swipe
