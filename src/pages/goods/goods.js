@@ -23,7 +23,8 @@ new Vue({
         tabIndex: 0,
         dealLists: null,
         bannerLists: null,
-
+        skuType: 1,
+        showSku: false,
     },
     created() {
         this.getDetails()
@@ -53,10 +54,23 @@ new Vue({
             axios.get(url.deal, { id }).then(res => {
                 this.dealLists = res.data.data.lists
             })
-        }
+        },
+        chooseSku(type) {
+            this.skuType = type
+            this.showSku = true
+        },
+
     },
     components: {
         Swipe
+    },
+    watch: {
+        showSku(val, oldVal) {
+            document.body.style.overflow = val ? 'hidden' : 'auto'
+            document.querySelector('html').style.overflow = val ? 'hidden' : 'auto'
+            document.body.style.height = val ? '100%' : 'auto'
+            document.querySelector('html').style.height = val ? '100%' : 'auto'
+        }
     },
     mixins: [mixin]
 })
