@@ -71,7 +71,7 @@ new Vue({
         addCart() {
             axios.post(url.addCart, {
                 id,
-                number: this.skuNum
+                number: this.skuNum,
             }).then(res => {
                 if (res.data.status === 200) {
                     this.showSku = false
@@ -80,7 +80,7 @@ new Vue({
 
                     setTimeout(() => {
                         this.showAddMessage = false
-                    }, 1000)
+                    }, 1500)
                 }
             })
         },
