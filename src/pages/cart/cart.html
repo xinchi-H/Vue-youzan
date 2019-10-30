@@ -27,7 +27,7 @@
           <!---->
           <!---->
           <div class="js-shop-list shop-list">
-            <div class="block block-order block-cart">
+            <div class="block block-order block-cart" v-for="(shop,index) in lists" :key="lists[index].shopId">
               <div class="header">
                 <div class="select-group js-select-group">
                   <span class="check"></span>
