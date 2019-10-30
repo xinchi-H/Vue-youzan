@@ -21,10 +21,24 @@ new Vue({
     methods: {
         getList() {
             axios.get(url.cartLists).then(res => {
-                this.lists = res.data.cartList
+                let lists = res.data.cartList
+                lists.forEach(shop => {
+                    shop.checked = true
+                    shop.goodsList.forEach(good => {
+                        good.checked = true
+                    })
+                })
+                this.lists = lists
             })
-        }
+        },
+        selectGood(good) {
+            good.checked = !good.checked
+        },
+        selectShop(shop) {
+            shop.checked = !shop.checked
+        },
     },
+
     mixin: [mixin],
 
 })
