@@ -46,7 +46,7 @@
                   <!-- 因为lists是数组，所以必须用shop.goodsLists(lists[index].goodsLists)，而非lists.goodsLists -->
                   <li class="block-item block-item-cart" v-for="(good,goodIndex) in shop.goodsList" :key="good.id">
                     <div>
-                      <div class="check-container" @click="selectGood(good)">
+                      <div class="check-container" @click="selectGood(shop,good)">
                         <span class="check" :class="{checked:good.checked}"></span></div>
                       <div class="name-card clearfix">
                         <a :href="'goods.html?id='+good.id" class="thumb js-goods-link">
@@ -134,7 +134,8 @@
               你需要分开结算每个店铺的商品哦~
             </div>
             <div class="bottom-cart clear-fix">
-              <div class="select-all"><span class="check"></span> 全选
+              <div class="select-all">
+                <span class="check" :class="{checked:allSelected}"></span> 全选
               </div>
               <!-- 显示状态 -->
               <div class="total-price">
