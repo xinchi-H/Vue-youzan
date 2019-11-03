@@ -133,7 +133,7 @@ new Vue({
         },
         reduce(good) {
             if (good.number === 1) return
-            axios.get(url.cartReduce, {
+            axios.post(url.cartReduce, {
                 id: good.id,
                 number: 1
             }).then(res => {
@@ -141,7 +141,7 @@ new Vue({
             })
         },
         add(good) {
-            axios.get(url.cartAdd, {
+            axios.post(url.cartAdd, {
                 id: good.id,
                 number: 1
             }).then(res => {
