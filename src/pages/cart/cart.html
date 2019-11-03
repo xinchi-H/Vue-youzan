@@ -85,7 +85,7 @@
                         </div>
                         <div class="error-box"></div>
                       </div>
-                      <div class="delete-btn"><span>删除</span></div>
+                      <div class="delete-btn"  @click="remove(shop,shopIndex,good,goodIndex)"><span>删除</span></div>
                     </div>
                   </li>
                 </ul>
@@ -125,7 +125,7 @@
                       </div>
                       <div class="error-box">商品已售罄</div>
                     </div>
-                    <div class="delete-btn" @click="remove(shop,shopIndex,good,goodIndex)"><span>删除</span></div>
+                    <div class="delete-btn"><span>删除</span></div>
                   </div>
                 </li>
               </ul>
@@ -172,7 +172,7 @@
         <p class="js-cancel center font-size-16" style="padding-top: 5px;">取消</p>
       </div>
       <div class="btn-2-1" style="width: 47.5%;">
-        <p class="js-ok center c-green font-size-16" style="padding-top: 5px;">确定</p>
+        <p class="js-ok center c-green font-size-16" style="padding-top: 5px;" @click="">确定</p>
       </div>
     </div>
   </div>
