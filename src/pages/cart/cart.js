@@ -59,6 +59,8 @@ new Vue({
                 let lists = res.data.cartList
                 lists.forEach(shop => {
                     shop.checked = true
+                    shop.editing = false
+                    shop.editingMsg = '编辑'
                     shop.goodsList.forEach(good => {
                         good.checked = true
                     })
@@ -82,7 +84,7 @@ new Vue({
             this.allSelected = !this.allSelected
         }
     },
-    mixin: [mixin],
+    mixins: [mixin],
 })
 
 
