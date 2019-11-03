@@ -131,6 +131,18 @@ new Vue({
             this.editingShop = shop.editing ? shop : null
             this.editingShopIndex = shop.editing ? shopIndex : -1
         },
+        reduce(good){
+            if(good.number===1)return
+            axios.post(url.cartReduce,{
+                id: good.id,
+                number: 1
+            }).then(res =>{
+                good.number --
+            })
+        },
+        add(good){
+            
+        }
     },
     mixins: [mixin],
 })
