@@ -12,6 +12,7 @@ new Vue({
     data: {
         lists: null,
         total: 0,
+        
     },
     computed: {
         allSelected: {
@@ -85,11 +86,11 @@ new Vue({
         },
         edit(shop, shopIndex) {
             shop.editing = !shop.editing
-            shop.editingMsg = this.editing ? '完成' : '编辑'
+            shop.editingMsg = shop.editing ? '完成' : '编辑'
             this.lists.forEach((item, i) => {
                 if (shopIndex !== i) {
                     item.editing = false
-                    item.editingMsg = this.editing ? '' : '编辑'
+                    item.editingMsg = shop.editing ? '' : '编辑'
                 }
             })
         },
