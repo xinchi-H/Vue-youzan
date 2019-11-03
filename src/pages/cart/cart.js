@@ -159,10 +159,19 @@ new Vue({
                 id: good.id,
             }).then(res => {
                 shop.goodsList.splice(goodIndex, 1)
-                if(!shop.goodsList.length){
-                    this.lists.splice(shopIndex,1)
+                if (!shop.goodsList.length) {
+                    this.lists.splice(shopIndex, 1)
+                    this.removeShop()
                 }
                 this.removePopup = false
+            })
+        },
+        removeShop() {
+            this.editingShop = null
+            this.editingShopIndex = -1
+            this.lists.forEach(shop => {
+                shop.editing = false
+                shop.editingMsg = '编辑'
             })
         }
     },
