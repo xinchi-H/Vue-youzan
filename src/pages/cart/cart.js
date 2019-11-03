@@ -82,7 +82,17 @@ new Vue({
         },
         selectAll() {
             this.allSelected = !this.allSelected
-        }
+        },
+        edit(shop, shopIndex) {
+            shop.editing = !shop.editing
+            shop.editingMsg = this.editing ? '完成' : '编辑'
+            this.lists.forEach((item, i) => {
+                if (shopIndex !== i) {
+                    item.editing = false
+                    item.editingMsg = this.editing ? '' : '编辑'
+                }
+            })
+        },
     },
     mixins: [mixin],
 })
