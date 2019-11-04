@@ -143,7 +143,9 @@ new Vue({
             // }).then(res => {
             //     good.number--
             // })
-            
+            Cart.reduce(good.id).then(res => {
+                good.number--
+            })
         },
         add(good) {
             // axios.post(url.cartAdd, {
