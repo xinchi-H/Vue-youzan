@@ -47,8 +47,8 @@
                 <ul class="js-list block block-list block-list-cart border-0">
                   <!-- 因为lists是数组，所以必须用shop.goodsLists(lists[index].goodsLists)，而非lists.goodsLists -->
                   <li class="block-item block-item-cart" :class="{editing:shop.editing}"
-                    v-for="(good,goodIndex) in shop.goodsList" :key="good.id" @touchstart="start($event,good)"
-                    @touchend="end($event,shopIndex,good,goodIndex)">
+                    v-for="(good,goodIndex) in shop.goodsList" :key="good.id" :ref="'goods-'+shopIndex+'-'+goodIndex"
+                    @touchstart="start($event,good)" @touchend="end($event,shopIndex,good,goodIndex)">
                     <div>
                       <div class="check-container" @click="selectGood(shop,good)">
                         <span class="check" :class="{checked:good.checked}" v-show="!editingShop"></span>
