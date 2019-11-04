@@ -206,6 +206,12 @@ new Vue({
             })
         }
     },
+    start(e, good) {
+
+    },
+    end(e,shopIndex,good,goodIndex) {
+
+    },
     mixins: [mixin],
 })
 
