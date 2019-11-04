@@ -136,7 +136,7 @@ new Vue({
             this.editingShopIndex = shop.editing ? shopIndex : -1
         },
         reduce(good) {
-            // if (good.number === 1) return
+            if (good.number === 1) return
             // axios.post(url.cartReduce, {
             //     id: good.id,
             //     number: 1
