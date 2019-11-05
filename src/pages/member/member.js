@@ -5,7 +5,7 @@ Vue.use(Router)
 
 let routes = [{
     path: '/',
-    component: require('./components/member.vue')
+    components: require('./components/member.vue')
 }]
 
 // 2.创建router实例
