@@ -30,6 +30,15 @@ export default {
             this.cityList = list[index].children
             this.cityValue = -1
             this.districtValue = -1
+        },
+        cityValue(val) {
+            if (val === -1) return
+            let list = this.cityList
+            let index = list.findIndex(item => {
+                return item.value === val
+            })
+            this.districtList = list[index].children
+            this.districtValue = -1
         }
     }
 }
