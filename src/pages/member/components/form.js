@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         add() {
-            //需要做飞空和合法性合法性校验
+            //需要做非空和合法性合法性校验
             let { name, tel, provinceValue, cityValue, districtValue, address } = this
             let data = { name, tel, provinceValue, cityValue, districtValue, address }
             if (this.type === 'add') {
@@ -41,10 +41,23 @@ export default {
                 })
             }
             if (this.type === 'edit') {
+                data.id = this.id
                 Address.add(data).then(res => {
                     this.$router.go(-1) //回到上级页面
                 })
             }
+        },
+        remove() {
+            if (window.confirm('确认删除吗？')) {
+                Address.remove(this.id).then(res => {
+                    this.$router.go(-1)
+                })
+            }
+        },
+        setDefault() {
+            Address.setDefault(this.id).then(res => {
+                this.$router.go(-1)
+            })
         },
     },
     watch: {
@@ -58,7 +71,7 @@ export default {
             this.cityValue = -1
             this.districtValue = -1
 
-            if(this.type==='edit'){
+            if (this.type === 'edit') {
                 this.cityValue = parseInt(this.instance.cityValue)
             }
         },
@@ -71,7 +84,7 @@ export default {
             this.districtList = list[index].children
             this.districtValue = -1
 
-            if(this.type==='edit'){
+            if (this.type === 'edit') {
                 this.districtValue = parseInt(this.instance.districtValue)
             }
         }

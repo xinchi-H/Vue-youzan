@@ -1,3 +1,5 @@
+import './member.css'
+
 // 1.使用vue-router
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -19,7 +21,7 @@ let routes = [{
   },{
     path: 'form',
     name: 'form',
-    
+
     components:require('./components/form.vue')
   }]
 }]
