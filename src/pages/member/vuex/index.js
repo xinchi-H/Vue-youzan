@@ -25,11 +25,12 @@ const store = new Vuex.Store({
             lists.splice(index, 1)
         },
         update(state, instance) {
-            let lists = state.lists
+            let lists = JSON.parse(JSON.stringify(state.lists))
             let index = lists.findIndex(item => {
-                return item.id == id
+                return item.id == instance.id
             })
             lists[index] = instance
+            state.lists = lists
         },
         setDefault(state, id) {
             let lists = state.lists
@@ -47,12 +48,19 @@ const store = new Vuex.Store({
         },
         addAction({ commit }, instance) {
             Address.add(instance).then(res => {
+                //模拟添加id，其实instance最好后台返回
+                instance.id = parseInt(Math.random()*10000)
                 commit('add', instance)
             })
         },
         removeAction({ commit }, id) {
             Address.remove(id).then(res => {
                 commit('remove', id)
+            })
+        },
+        updateAction({ commit }, instance) {
+            Address.update(instance).then(res => {
+                commit('update', instance)
             })
         },
         setDefaultAction({ commit }, id) {

@@ -48,9 +48,10 @@ export default {
             }
             if (this.type === 'edit') {
                 data.id = this.id
-                Address.add(data).then(res => {
-                    this.$router.go(-1) //回到上级页面
-                })
+                // Address.update(data).then(res => {
+                //     this.$router.go(-1) //回到上级页面
+                // })
+                this.$store.dispatch('updateAction', data)
             }
         },
         remove() {
@@ -58,20 +59,22 @@ export default {
                 // Address.remove(this.id).then(res => {
                 //     this.$router.go(-1)
                 // })
-                this.$store.dispatch('removeAction',this.id)
+                this.$store.dispatch('removeAction', this.id)
             }
         },
         setDefault() {
             // Address.setDefault(this.id).then(res => {
             //     this.$router.go(-1)
             // })
-            this.$store.dispatch('setDefaultAction',this.id)
-            this.$router.go(-1)
+            this.$store.dispatch('setDefaultAction', this.id)
         },
     },
     watch: {
-        lists() {
-            this.$router.go(-1)
+        lists: {
+            handler() {
+                this.$router.go(-1)
+            },
+            deep: true
         },
         provinceValue(val) {
             if (val === -1) return
