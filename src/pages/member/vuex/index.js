@@ -15,7 +15,7 @@ const store = new Vuex.Store({
             state.lists = lists
         },
         add(state, instance) {
-
+            state.lists.push(instance)
         }
     },
     actions: {
@@ -25,8 +25,10 @@ const store = new Vuex.Store({
                 commit('init', res.data.lists)
             })
         },
-        addAction({ commit }) {
-            Address.add()
+        addAction({ commit }, instance) {
+            Address.add(instance).then(res => {
+                commit('add', instance)
+            })
         }
     },
 })
