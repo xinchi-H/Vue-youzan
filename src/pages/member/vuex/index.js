@@ -48,7 +48,7 @@ const store = new Vuex.Store({
         },
         addAction({ commit }, instance) {
             Address.add(instance).then(res => {
-                //模拟添加id，其实instance最好后台返回
+                //模拟添加id，其实instance最好后台返回 
                 instance.id = parseInt(Math.random()*10000)
                 commit('add', instance)
             })
