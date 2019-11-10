@@ -28,7 +28,8 @@ new Vue({
             })
         },
         move() {
-            if (document.documentElement.scrollTop > 100) {
+            // 鼠标滚轮滑动无法触发事件
+            if (document.documentElement.scrollTop > 50) {
                 this.isShow = true
             } else {
                 this.isShow = false
