@@ -9,7 +9,7 @@
         </div>
         <div class="block-item">
           <label>联系电话</label>
-          <input type="tel" placeholder="联系电话" name="tel" v-model.trim="tel" maxlength="11" />
+          <input type="tel" placeholder="联系电话" name="tel" v-model.trim="tel" maxlength="11"/>
         </div>
         <div class="block-item">
           <label>选择地区</label>

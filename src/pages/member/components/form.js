@@ -15,6 +15,9 @@ export default {
             addressData: require('js/address.json'),
             cityList: null,
             districtList: null,
+            provinceName: '',
+            cityName: '',
+            districtName: '',
         }
     },
     computed: {
@@ -33,13 +36,20 @@ export default {
             this.tel = ad.tel
             this.address = ad.address
             this.id = ad.id
+            this.provinceName = ad.provinceName
+            this.cityName = ad.cityName
+            this.districtName = ad.districtName
         }
     },
     methods: {
         add() {
             //需要做非空和合法性合法性校验
-            let { name, tel, provinceValue, cityValue, districtValue, address } = this
-            let data = { name, tel, provinceValue, cityValue, districtValue, address }
+            let {
+                name, tel, provinceValue, provinceName, cityValue, cityName, districtValue, districtName, address
+            } = this
+            let data = {
+                name, tel, provinceValue, provinceName, cityValue, cityName, districtValue, districtName, address
+            }
             if (this.type === 'add') {
                 // Address.add(data).then(res => {
                 //     this.$router.go(-1) //回到上级页面
