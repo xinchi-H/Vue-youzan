@@ -20,10 +20,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <!-- <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./css/search.css"> -->
+  <style>
+    [v-cloak] {
+      display: none
+    }
+  </style>
 </head>
 
-<body class=" " style="min-height: 667px;">
-  <div class="container with-top-search" style="min-height: 667px;" @touchmove="move">
+<body class=" " style="min-height: 667px;" >
+  <div class="container with-top-search" v-cloak style="min-height: 667px;" @touchmove="move">
     <div class="custom-search js-search-bar">
       <form>
         <input type="search" class="custom-search-input" autocomplete="off" name="keyword" :value="keyword"
@@ -73,7 +78,8 @@
         <div class="list-finished">已经没有更多了</div>
       </div>
     </div>
-    <div class="go-to-top" v-show="isShow" @click="toTop" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+    <div class="go-to-top" v-show="isShow" @click="toTop"
+      style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
     </div>
   </div>
 </body>
